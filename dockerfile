@@ -3,7 +3,7 @@ FROM php:8.2-apache
 RUN apt-get update
 
 # Starters
-RUN apt install git && apt install nano
+RUN apt install -y git nano zip 7zip
 
 # Composer installation
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -11,6 +11,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php \
     && php -r "unlink('composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer
+
+RUN composer install
 
 EXPOSE 80
 EXPOSE 443

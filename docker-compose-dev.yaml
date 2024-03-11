@@ -12,6 +12,8 @@ services:
     networks:
       networkwp:
         ipv4_address: 172.24.0.10
+    volumes:
+      - ./:/var/www/html:rwx
   db:
     image: mysql:8.0.32
     restart: always
