@@ -5,6 +5,8 @@ services:
     restart: always
     ports:
       - "80:80"
+      - "5173:5173"
+      - "8000:8000"
     links:
       - db
     depends_on:
